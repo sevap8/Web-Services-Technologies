@@ -14,72 +14,73 @@ xmlns:tns="http://service.maxart.com/"
 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
 xmlns="http://schemas.xmlsoap.org/wsdl/"
 targetNamespace="http://service.maxart.com/" name="PersonService">
-<types>
-<xsd:schema>
-<xsd:import namespace="http://service.maxart.com/"
+    <types>
+       <xsd:schema>
+          <xsd:import namespace="http://service.maxart.com/"
 schemaLocation="http://localhost:8080/Service?xsd=1"/>
-</xsd:schema>
-<xsd:schema>
-<xsd:import namespace="http://service.maxart.com"
+          </xsd:schema>
+          <xsd:schema>
+            <xsd:import namespace="http://service.maxart.com"
 schemaLocation="http://localhost:8080/PersonService?xsd=2"/>
-</xsd:schema>
-</types>
-<message name="getAllPersons">
-<part name="parameters" element="tns:getAllPersons"/>
-</message>
-<message name="getAllPersonsResponse">
-<part name="parameters" element="tns:getAllPersonsResponse"/>
-</message>
-<message name="findPersons">
-<part name="parameters" element="tns:findPersons"/>
-</message>
-<message name="findPersonsResponse">
-<part name="parameters" element="tns:findPersonsResponse"/>
-</message>
-<portType name="PersonWebService"><operation name="getAllPersons">
-<input
+          </xsd:schema>
+    </types>
+    <message name="getAllPersons">
+          <part name="parameters" element="tns:getAllPersons"/>
+    </message>
+    <message name="getAllPersonsResponse">
+          <part name="parameters" element="tns:getAllPersonsResponse"/>
+    </message>
+    <message name="findPersons">
+          <part name="parameters" element="tns:findPersons"/>
+    </message>
+    <message name="findPersonsResponse">
+          <part name="parameters" element="tns:findPersonsResponse"/>
+    </message>  
+    <portType name="PersonWebService">
+        <operation name="getAllPersons">
+            <input
 wsam:Action="http://service.maxart.com/PersonWebService/getAllPersonsReques
 t" message="tns:getAllPersons"/>
-<output
+            <output
 wsam:Action="http://service.maxart.com/PersonWebService/getAllPersonsRespon
 se" message="tns:getAllPersonsResponse"/>
-</operation>
-<operation name="findPersons">
-<input
+        </operation>
+        <operation name="findPersons">
+            <input
 wsam:Action="http://service.maxart.com/PersonWebService/findPersonsRequest"
 message="tns:findPersons"/>
-<output
+            <output
 wsam:Action="http://service.maxart.com/PersonWebService/findPersonsResponse
 " message="tns:findPersonsResponse"/>
-</operation>
-</portType>
-<binding name="PersonWebServicePortBinding"
+        </operation>
+     </portType>
+     <binding name="PersonWebServicePortBinding"
 type="tns:PersonWebService">
-<soap:binding transport="http://schemas.xmlsoap.org/soap/http"
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http"
 style="document"/>
-<operation name="getAllPersons">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="findPersons">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-</binding>
-<service name="PersonService">
-<port name="PersonWebServicePort"
+      <operation name="getAllPersons">
+         <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+          </operation>
+          <operation name="findPersons">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+          </operation>
+      </binding>
+      <service name="PersonService">
+          <port name="PersonWebServicePort"
 binding="tns:PersonWebServicePortBinding">
-<soap:address location="http://localhost:8080/PersonService"/>
-</port>
-</service>
-</definitions>
+                <soap:address location="http://localhost:8080/PersonService"/>
+          </port>
+       </service>
+    </definitions>
