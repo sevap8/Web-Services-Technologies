@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.maxart.service.src.mycompany.lab1.J2EE.WebServiceClient;
 
 import java.net.MalformedURLException;
@@ -26,30 +21,29 @@ public static void main(String[] args) throws MalformedURLException {
         System.out.println();
         System.out.println("Query: Persons?name=Петер");
         MyRequest myRequest = new MyRequest();
-        myRequest.seturname("Петер");
+        myRequest.setSurname("Петер");
         persons = personWebService.findPersons(myRequest);
         for (Person person : persons) {
         System.out.println(person.toString());
         }
         System.out.println("Total persons: " + persons.size());
         System.out.println();
-        System.out.println("Query: findPersons?name=Петер
-        Винчи&year=1495");
+        System.out.println("Query: findPersons?name=Петер&position='Менеджер'");
         myRequest.setYear(1495);
-        pictures = pictureWebService.findPictures(myRequest);
-        for (Picture picture : pictures) {
-        System.out.println(picture.toString());
+        persons = personWebService.findpersons(myRequest);
+        for (Person person : persons) {
+        System.out.println(person.toString());
         }
-        System.out.println("Total pictures: " + pictures.size());
+        System.out.println("Total persons: " + persons.size());
         System.out.println();
-        System.out.println("Query: findPictures?id=7");
-        myRequest.setId(7);myRequest.setYear(0);
-        myRequest.setAuthor("");
-        pictures = pictureWebService.findPictures(myRequest);
-        for (Picture picture : pictures) {
-        System.out.println(picture.toString());
+        System.out.println("Query: findPersons?id=3");
+        myRequest.setId(7);myRequest.setAge(0);
+        myRequest.setSurname("");
+        persons = personWebService.findPersons(myRequest);
+        for (Persons person : persons) {
+        System.out.println(person.toString());
         }
-        System.out.println("Total pictures: " + pictures.size());
+        System.out.println("Total persons: " + persons.size());
         System.out.println();
     }
 }
