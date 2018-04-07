@@ -28,7 +28,7 @@ public class WebServiceClient {
 
         System.out.println("Query: createPerson?name=Иванов&surname=Иван&" +
         "position=Менеджер&age=25&salary=1000");
-            int creatingPersonId = personWebService.createPerson("Иванов", "Иван", 1881, "Менеджер", 25, 1000);
+            int creatingPersonId = personWebService.createPerson("Иванов", "Иван", "Менеджер", 25, 1000);
             
         System.out.println("Inserting id: " + creatingPersonId);
         System.out.println();
